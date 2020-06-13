@@ -1,0 +1,25 @@
+Goto https://github.com/Code-Institute-Org/gitpod-full-template
+    Use template
+    Name repo
+    Make public
+    Open Gitpod (you'll need the Gitpod addon)
+
+cli: pip3 install django
+    installs django
+
+cli: python
+        will give you the python version in use
+
+cli: cd workspace/.pip-modules/lib/python(then press tab and it will auto complete with the correct version of python)/site-packages/
+    should give you something like cd /workspace/.pip-modules/lib/python3.8/site-packages/
+    accesses all the pip3 downloads and their requirements
+    cli: ls -la
+        to view
+    cli: cd -
+        to return to previous directory
+
+cli: django-admin startproject django_todo .
+    django-admin is a built in command to allow administration
+    startproject is another built in command
+    django_todo is the project name, it could have been anything
+     . to open the project in the corrent directory
