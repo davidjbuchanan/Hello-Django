@@ -23,3 +23,51 @@ cli: django-admin startproject django_todo .
     startproject is another built in command
     django_todo is the project name, it could have been anything
      . to open the project in the corrent directory
+
+
+In the file explorer now we'll see we have two new items: 
+Django_todo     This is our project directory. The django_todo folder.
+And manage.py   a management utility we'll need throughout the project.
+
+Open the django_todo folder: 
+1) __init__.py file which was automatically created to tell our project that this is a directory we can import from.
+2) settings.py contains the global settings for our entire Django project. So things like whether we want to show debug information when errors happen. And things like where our HTML templates are located. And which database we're going to connect to. These are all controlled in the settings.py file
+3) urls.py contains the routing information that allows our users to type a specific URL into their address bar. And hit a specific Python function. So this is analogous to app.root in flask.
+4) wsgi.py which contains the code that allows our web server to communicate with our Python application.
+
+That's all we need to start a new Django project.
+
+cli: python3 manage.py runserver
+    opens up the development browser
+
+When you run the server for the first time you generate 2 new files:
+1) __pycache__ file contains all the cache files which includes env vars so get this into .gitignore
+2) db.sqlite3 file is the database for the project so don't mess around with it
+
+cli: python3 manage.py startapp todo
+    start an app called todo
+    everything in django revolves around compartmentalised apps
+
+This will give you more files in the file explorer:
+    see views.py within the app
+        this is the views part of model view control
+        renders the interface users interact with 
+
+Under todo
+    add templates folder
+        add todo folder
+            add todo_list.html file
+
+cli: python3 manage.py makemigrations --dry-run
+    migrations are Django's way of converting python code into sql language without the developer having to write any sql
+    this command (without the --dry-run flag) creates a file whereby any new 'class' in 'models.py' are staged for migration
+    use the dry run flag to do trial before commiting to an actual migration without the flag
+    Once you create a new 'class' in 'models.py' and run the command a new file apears in the migrations folder
+        e.g. 0001_initial.py 
+cli: python3 manage.py showmigrations
+    shows ocurred migrations i.e. stuff that comes with Django that allows superuser creation. You need to do the next command first
+cli: python3 manage.py migrate --plan
+    this essentially 'commits' changes
+    the --plan flag shows you what is staged for 'commit'. Not including it allows the migrate to actually occur
+cli: python3 manage.py createsuperuser
+    Once you've done the migrations you can create a superuser with email, username and password
