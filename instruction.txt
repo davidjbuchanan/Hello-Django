@@ -1,3 +1,5 @@
+Django uses the Model View Template design pattern as described in https://www.youtube.com/watch?v=ktJfE4DHrv0. This is complimentary to the Model View Control design pattern where Django performs the Control function in the model. The templates render the user interface.
+
 Goto https://github.com/Code-Institute-Org/gitpod-full-template
     Use template
     Name repo
@@ -71,3 +73,13 @@ cli: python3 manage.py migrate --plan
     the --plan flag shows you what is staged for 'commit'. Not including it allows the migrate to actually occur
 cli: python3 manage.py createsuperuser
     Once you've done the migrations you can create a superuser with email, username and password
+
+cli: python3 manage.py tests
+    Will run all tests
+cli: python3 manage.py tests todo.test_forms
+    runs all tests in the test_forms
+cli: python3 manage.py tests todo.test_forms.TestItemForm
+    runs all tests in the TestItemForm class
+cli: python3 manage.py tests todo.test_forms.TestItemForm.test_item_name_is_required
+    Runs a specific single test
+ 
