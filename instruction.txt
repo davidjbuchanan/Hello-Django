@@ -82,4 +82,18 @@ cli: python3 manage.py tests todo.test_forms.TestItemForm
     runs all tests in the TestItemForm class
 cli: python3 manage.py tests todo.test_forms.TestItemForm.test_item_name_is_required
     Runs a specific single test
+
+cli: pip3 install coverage
+    installs coverage tool
+    tells you how much of your code has been tested
+cli: coverage run --source=todo manage.py test
+    selects file to test
+cli: coverage report
+     generates a report in the cli
+cli: coverage html
+    generates a folder called htmlcov, within it there is an html report that you can interrogate it will be called
+cli: python3 -m http.server
+    look at in the server
+    only the htmlcov/ link will open
+
  
